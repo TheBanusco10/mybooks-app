@@ -1,5 +1,5 @@
 import { defaultConfig } from '@tamagui/config/v4';
-import { Drawer } from "expo-router/drawer";
+import { Stack } from 'expo-router';
 import { createTamagui, TamaguiProvider } from 'tamagui';
 
 // you usually export this from a tamagui.config.ts file
@@ -12,13 +12,19 @@ declare module 'tamagui' {
   interface TamaguiCustomConfig extends Conf { }
 }
 
+const isLoggedIn = true;
+
 export default function RootLayout() {
   return (
     <TamaguiProvider config={config}>
-      <Drawer>
-        <Drawer.Screen name="index" options={{ title: 'Index', drawerLabel: "Index" }} />
-        <Drawer.Screen name="home" options={{ title: 'Página de inicio', drawerLabel: "Inicio" }} />
-      </Drawer>
+      <Stack>
+        <Stack.Protected guard={isLoggedIn}>
+          <Stack.Screen name="(tabs)" options={{ title: 'Index' }} />
+        </Stack.Protected>
+        <Stack.Protected guard={!isLoggedIn}>
+          <Stack.Screen name="sign-in" options={{ title: 'Sign in' }} />
+        </Stack.Protected>
+      </Stack>
     </TamaguiProvider>
   );
 }
