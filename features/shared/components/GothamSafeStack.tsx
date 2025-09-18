@@ -3,6 +3,7 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { Stack } from "tamagui";
+import GothamHeader from "./GothamHeader";
 
 const HORIZONTAL_PADDING = 20;
 
@@ -22,6 +23,7 @@ export default function GothamSafeStack({
         pr={insets.right + HORIZONTAL_PADDING}
         flex={1}
       >
+        <GothamHeader />
         {children}
       </Stack>
     </SafeAreaProvider>

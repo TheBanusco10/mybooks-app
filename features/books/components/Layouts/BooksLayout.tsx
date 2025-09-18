@@ -1,6 +1,6 @@
+import BooksList from "@/features/books/components/BooksList";
 import GothamSafeStack from "@/features/shared/components/GothamSafeStack";
 import { H3 } from "tamagui";
-import BooksList from "./BooksList";
 
 export default function BooksLayout() {
   return (

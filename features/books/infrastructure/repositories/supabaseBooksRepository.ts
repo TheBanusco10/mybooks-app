@@ -1,6 +1,7 @@
+import BooksRepository from "@/features/books/domain/repositories/booksRepository";
+import { Row } from "@/features/shared/interfaces/database";
 import { supabase } from "@/features/shared/libs/supabase";
 import { BooksResult } from "@/features/shared/types/books";
-import BooksRepository from "../../domain/repositories/booksRepository";
 
 export default class SupabaseBooksRepository implements BooksRepository {
   async getBooks(from: number, to: number): Promise<BooksResult> {
@@ -20,5 +21,17 @@ export default class SupabaseBooksRepository implements BooksRepository {
       results: books || [],
       total: count || 0,
     };
+  }
+
+  async getBookById(id: number): Promise<Row<"books">> {
+    const { data, error } = await supabase
+      .from("books")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (error) throw error;
+
+    return data;
   }
 }

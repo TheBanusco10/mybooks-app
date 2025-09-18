@@ -10,6 +10,7 @@ export default function AuthLayout() {
     <Stack>
       <Stack.Protected guard={isLoggedIn}>
         <Stack.Screen name="(tabs)" options={{ title: "Index", headerShown: false }} />
+        <Stack.Screen name="books/[id]" options={{ title: "BookDetails", headerShown: false }} />
       </Stack.Protected>
       <Stack.Protected guard={!isLoggedIn}>
         <Stack.Screen name="sign-in" options={{ title: "Sign in", headerShown: false }} />
