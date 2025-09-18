@@ -1,7 +1,10 @@
-import { Text } from "tamagui";
+import Auth from "@/features/auth/components/Auth";
+import { View } from "tamagui";
 
-const SignIn = () => {
-    return <Text>Sign in screen</Text>
-}
+const SignIn = () => (
+  <View>
+    <Auth />
+  </View>
+);
 
 export default SignIn;

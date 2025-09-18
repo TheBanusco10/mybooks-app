@@ -1,7 +1,5 @@
-import { SizableText } from "tamagui";
+import BooksLayout from "@/features/books/components/BooksLayout";
 
 export default function Index() {
-  return (
-    <SizableText size="$10">Home page</SizableText>
-  )
+  return <BooksLayout />;
 }
