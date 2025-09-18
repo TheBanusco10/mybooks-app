@@ -2,6 +2,7 @@ import AuthLayout from "@/features/auth/components/AuthLayout";
 import { AuthProvider } from "@/features/auth/contexts/auth";
 import { defaultConfig } from "@tamagui/config/v4";
 import { createTamagui, TamaguiProvider } from "tamagui";
+import "@/features/shared/i18n";
 
 // you usually export this from a tamagui.config.ts file
 const config = createTamagui(defaultConfig);
