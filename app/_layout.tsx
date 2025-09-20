@@ -1,11 +1,8 @@
 import AuthLayout from "@/features/auth/components/AuthLayout";
 import { AuthProvider } from "@/features/auth/contexts/auth";
-import { defaultConfig } from "@tamagui/config/v4";
-import { createTamagui, TamaguiProvider } from "tamagui";
 import "@/features/shared/i18n";
-
-// you usually export this from a tamagui.config.ts file
-const config = createTamagui(defaultConfig);
+import { config } from "@/tamagui.config";
+import { TamaguiProvider, Theme } from "tamagui";
 
 type Conf = typeof config;
 
@@ -18,7 +15,9 @@ export default function RootLayout() {
   return (
     <TamaguiProvider config={config}>
       <AuthProvider>
-        <AuthLayout />
+        <Theme name="green">
+          <AuthLayout />
+        </Theme>
       </AuthProvider>
     </TamaguiProvider>
   );

@@ -12,7 +12,7 @@ export default function GothamHeader() {
           onPress={() => router.back()}
           circular
           maxW="max-content"
-          mb="$4"
+          mb={2}
         >
           <ArrowLeft />
         </Button>

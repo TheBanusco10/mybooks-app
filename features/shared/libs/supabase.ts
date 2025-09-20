@@ -1,8 +1,8 @@
+import { Database } from "@/features/shared/types/database.types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient, processLock } from "@supabase/supabase-js";
 import { AppState, Platform } from "react-native";
 import "react-native-url-polyfill/auto";
-import { Database } from "../types/database.types";
 
 const supabaseUrl = "http://10.0.2.2:54321";
 const supabaseAnonKey =
